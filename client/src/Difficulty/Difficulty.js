@@ -1,5 +1,5 @@
 import React from 'react'
-import {useEffect, useState, useContext} from 'react'
+import {useEffect, useState, useContext, useRef} from 'react'
 import { useNavigate } from 'react-router-dom';
 import {GameContext} from '../Context/GameContext'
 
@@ -7,20 +7,21 @@ function Difficulty() {
 
     let route= useNavigate();
 
-    const {GetRandomWord, CheckGuessing} = useContext(GameContext)
+    const {GetRandomWord, CheckGuessing, audio1} = useContext(GameContext)
 
     const [level, setLevel] = useState("")
 
         useEffect(() => {
-            if (level != "")
-                HandleLevel(level)
+            if (level !== "")
+                HandleLevel(level);
 
         }, [level])
 
         const HandleLevel = (level) =>{
-            GetRandomWord(level)
-            CheckGuessing(false)
-            route('/drawing')
+            GetRandomWord(level);
+            CheckGuessing(false);
+            audio1.play();
+            route('/drawing');
         }
         
 

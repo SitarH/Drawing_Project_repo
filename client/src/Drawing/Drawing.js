@@ -10,7 +10,7 @@ function Drawing() {
 
     let route= useNavigate();
 
-    const {randomWord, isGuessing} = useContext(GameContext)
+    const {randomWord, isGuessing, audio1, audio2} = useContext(GameContext)
 
     const [color, setColor] = useState()
     const [img, setImg] = useState('')
@@ -35,48 +35,33 @@ function Drawing() {
         
       }, 1000);
       return () => clearInterval(interval);
-      
     }
-
 
         
     }, [])
 
     useEffect(() => {
       if(canvas2.current)
-      canvas2.current.loadSaveData(img,false);
+      canvas2.current.loadSaveData(img,true);
      
     },)
     
-
-
-    
-
-    const handleSend = () =>{
-      //send img and word to backend
-      handleData()
-      route('/waiting')
-    }
-
   
     const handleData = async () =>{
+      audio1.play();
       const canvasData = canvas.current.getSaveData();
       await fetch('http://localhost:5005/change', {
         method: 'PUT',
         headers: {
           "Content-Type": "application/json",
          },
-        // We convert the React state to JSON and send it as the POST body
-        body: JSON.stringify({img: canvasData, currentWord: word})
+        // convert the React state to JSON and send it as the POST body
+        body: JSON.stringify({img: canvasData, currentWord: randomWord})
       }).then(function(response) {
         console.log(response)
         return response.json();
       });
-     // fetch('http://localhost:5005/drawing', {
-    //   method: 'POST',
-    //   headers: {"content-type": "application/json"},
-    //   body: JSON.stringify(randomWord)
-
+      route('/waiting')
     }
 
 
@@ -84,13 +69,30 @@ function Drawing() {
       if(playerGuess != word){
         alert('Wrong! please try again')
         setCounter(counter+1)
+        setPlayerGuess("")
+        
       }
       else{
         alert('Success!')
-        //reset object in backend to srart new session
+        audio2.play();
+        handleReset()
+        setPlayerGuess("")
+
       }
-        
-      
+
+    }
+
+    const handleReset = () =>{
+      fetch('http://localhost:5005/reset', {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json",
+         },
+        body: JSON.stringify({img: "", currentWord: ""})
+      }).then(function(response) {
+        console.log(response)
+        return response.json();
+      });
 
     }
 

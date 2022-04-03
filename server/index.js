@@ -19,7 +19,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 
 
-//get info from json to sent to guessing
+//get info from json to send to guessing
 server.get(`/drawing`, async (req, res) => {
     try{
     const file = await fs.readFileSync(`./game.json`)
@@ -36,19 +36,52 @@ server.get(`/drawing`, async (req, res) => {
 
 
 server.put('/change', async (req, res) =>{
-    debugger
-//try catch
+try{
     const dataJson = await fs.readFileSync('./game.json');
     const data= JSON.parse(dataJson);
     if(req.body){
         data[0]["img"] = req.body.img;
-        data[0]["currentWord"] = req.body.word;
+        data[0]["currentWord"] = req.body.currentWord;
         await fs.writeFileSync('./game.json', JSON.stringify(data));
         res.json(data);
-    }
+    } 
+    else
+        res.status(400).json({message: 'file not found'})
+
+}catch (error){
+    res.status(500).send(error)
+}
+    
+    // const dataJson = await fs.readFileSync('./game.json');
+    // const data= JSON.parse(dataJson);
+    // if(req.body){
+    //     data[0]["img"] = req.body.img;
+    //     data[0]["currentWord"] = req.body.word;
+    //     await fs.writeFileSync('./game.json', JSON.stringify(data));
+    //     res.json(data);
+    // }
     //error msg
   
 });
+
+server.put('/reset', async (req, res) =>{
+    try{
+        const dataJson = await fs.readFileSync('./game.json');
+        const data= JSON.parse(dataJson);
+        if(req.body){
+            data[0]["img"] = "";
+            data[0]["currentWord"] = "";
+            await fs.writeFileSync('./game.json', JSON.stringify(data));
+            res.json(data);
+        } 
+        else
+            res.status(400).json({message: 'file not found'})
+    
+    }catch (error){
+        res.status(500).send(error)
+    }
+      
+    });
 
 
 // server.post('/drawing', async (req, res) => {

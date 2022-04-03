@@ -8,15 +8,17 @@ function Welcome() {
 
     let route= useNavigate();
 
-    const {CheckGuessing} = useContext(GameContext)
+    const {CheckGuessing, audio1} = useContext(GameContext)
 
     const handleDraw = (event) =>{
-        event.preventDefault()
+        event.preventDefault();
+        audio1.play();
         route('/difficulty')
     }
 
     const handleGuess = (event) =>{
-      CheckGuessing(event)
+      CheckGuessing(event);
+      audio1.play();
       route('/drawing')
   }
 
