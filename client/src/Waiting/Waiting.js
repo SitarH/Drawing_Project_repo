@@ -14,7 +14,7 @@ function Waiting() {
         const image = data[0].img;
         const wordData = data[0].currentWord;
         if (image === "" && wordData === "")
-          route('/Welcome')
+          route('/')
       })
       
     }, 1000);

@@ -1,22 +1,15 @@
-.options{
-    display: flex;
-}
-
-.options button{
-    width:50px;
-    height:25px;
-    margin-top: 10px;
-}
 
 .color{
     display: flex;
     align-items: center;
     margin-right: 50px;
+    margin-bottom: 20px;
 }
 
 .canvas{
     margin-bottom: 10px;
-
+    width: 400px;
+    height: 400px;
 }
 
 h2.word{
@@ -37,19 +30,18 @@ input[type="text"]{
 @media screen and (max-width:767px) {
 
     .canvas{
-        width:50px;
+        width:200px;
     }
 
-
-    .options button{
-        width:50px;
-        height:25px;
-        margin-top: 15px;
-    }
 
     input[type="text"]{
         width:250px;
         margin-bottom: 20px;
+    }
+
+    h1.waitingDraw{
+        letter-spacing:5px;
+
     }
 
   

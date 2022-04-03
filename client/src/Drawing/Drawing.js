@@ -77,6 +77,7 @@ function Drawing() {
         audio2.play();
         handleReset()
         setPlayerGuess("")
+        route('/')
 
       }
 
@@ -102,14 +103,13 @@ function Drawing() {
     <div className="general">
         {isGuessing? <h2>Lets guess...</h2> :<h2>Lets draw...</h2>}
         {isGuessing? null: <h2 className="word">{randomWord}</h2>}
-        {isGuessing? null : <div className="options">
+        {isGuessing? null : 
         <div className="color">
         <label>Choose color:</label>
         <input type="color" value={color} onChange={(event)=> setColor(event.target.value)}></input>
         </div>
-        <button>Clear</button>
-        </div>}
-        {isGuessing? img == ''? <h1>Waiting for new drawing</h1> : <CanvasDraw ref={canvas2} disabled={true} width="400px" height="400px"></CanvasDraw> : <CanvasDraw ref={canvas} className="canvas" brushRadius="5" lazyRadius="0" brushColor={color} />}
+        }
+        {isGuessing? img == ''? <h1 className="waitingDraw">Waiting for new drawing</h1> : <CanvasDraw className="canvas" ref={canvas2} disabled={true}></CanvasDraw> : <CanvasDraw ref={canvas} className="canvas" brushRadius="5" lazyRadius="0" brushColor={color} />}
         {isGuessing? <input type="text" required={true} value={playerGuess} placeholder="Enter your answer" onChange={(event)=> setPlayerGuess(event.target.value)}></input> : null}
         {isGuessing? <button onClick={handleGuess}>Send</button> :<button onClick={handleData}>Send</button>}
     </div>
