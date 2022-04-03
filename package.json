@@ -1,0 +1,8 @@
+{
+    "name": "drawing-s",
+    "description": "draw and guess app",
+    "version": "1.0.0",
+    "engines": {
+      "node": "16.x"
+    }
+  }
