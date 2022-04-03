@@ -1,0 +1,97 @@
+*, *::after,*::before{
+    box-sizing: border-box;
+
+}
+
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    font-family: monospace;
+    background-color:black;
+}
+
+.general{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+h1{
+    color: red;
+    font-weight: 900;
+    font-size: 80px;
+    text-shadow: 2px 2px blue;
+    text-shadow: 5px 5px black, 3px 3px white, 7px 7px black, 10px 5px white, 10px 5px black, 10px 10px white;
+    letter-spacing: 60px;
+    margin-top: -5px;
+    text-align: center;
+    animation: animateGradient 2s infinite;
+    animation-delay: 0s;
+}
+
+@keyframes animateGradient {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+      background-position: 200px 200px;
+    }
+  }
+
+  button{
+    background-color: white;
+    border: 2px solid white;
+    width: 300px;
+    height: 30px;
+    font-weight: 900;
+    cursor: pointer;
+    font-family: monospace;
+    margin-bottom: 10px;
+
+  }
+  @media screen and (min-width:768px) {
+
+    .hide-on-desktop{
+        display: none;
+    }
+  
+}
+
+  /*mobile responsiveness*/
+  @media screen and (max-width:767px) {
+
+    .general{
+        height: 100vh;
+        text-align:center;
+    }
+      
+    h1 {
+        font-size:40px !important;
+        letter-spacing: 40px;
+        line-height: 1.5;
+        text-shadow: 2px 2px blue;
+        text-shadow: 5px 5px black, 3px 3px white, 7px 7px black, 10px 5px white, 10px 5px black, 5px 10px white;
+      
+    }
+
+    h1.waiting{
+        letter-spacing:5px;
+    }
+
+    button{
+        width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .general.difficulty h1{
+        letter-spacing:10px;
+    }
+
+  
+}
+
