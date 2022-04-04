@@ -73,8 +73,8 @@ function Drawing() {
         
       }
       else{
-        alert('Success!')
         audio2.play();
+        alert('Success!')
         handleReset()
         setPlayerGuess("")
         route('/')

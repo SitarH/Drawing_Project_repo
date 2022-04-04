@@ -40,41 +40,8 @@ export default function GameProvider(props) {
                 break;
         }
         setRandomWord(word);
-            // if(levelState === ""){
-            //     setLevelState(level)
-            // }
-            // const currentLevel = levelState.find(item=> item === level)
-            // RndFunc(currentLevel)
     }
 
-    // const RndFunc = (currentLevel) =>{
-    //     debugger
-    //     const randomWords = require('random-words');
-    //     let word = randomWords();
-    //     switch (currentLevel) {
-    //         case "easy":
-    //             if (word.length >=3 && word.length <=4)
-    //                 setRandomWord(word);
-    //             else
-    //             RndFunc();
-    //             break;
-    //         case "medium":
-    //             if (word.length == 5)
-    //                 setRandomWord(word);
-    //             else
-    //             RndFunc();
-    //             break;
-    //         case "hard":
-    //             if (word.length >= 6)
-    //                 setRandomWord(word);
-    //             else
-    //             RndFunc();
-    //             break;
-    //         default:
-    //             break;
-    //     }
-
-    // }
 
 
     return(

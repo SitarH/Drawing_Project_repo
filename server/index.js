@@ -34,7 +34,7 @@ server.get(`/drawing`, async (req, res) => {
     }
 })
 
-
+// change json file
 server.put('/change', async (req, res) =>{
 try{
     const dataJson = await fs.readFileSync('./game.json');
@@ -52,18 +52,10 @@ try{
     res.status(500).send(error)
 }
     
-    // const dataJson = await fs.readFileSync('./game.json');
-    // const data= JSON.parse(dataJson);
-    // if(req.body){
-    //     data[0]["img"] = req.body.img;
-    //     data[0]["currentWord"] = req.body.word;
-    //     await fs.writeFileSync('./game.json', JSON.stringify(data));
-    //     res.json(data);
-    // }
-    //error msg
   
 });
 
+//reset json file
 server.put('/reset', async (req, res) =>{
     try{
         const dataJson = await fs.readFileSync('./game.json');
@@ -82,40 +74,6 @@ server.put('/reset', async (req, res) =>{
     }
       
     });
-
-
-// server.post('/drawing', async (req, res) => {
-//     try {
-//         const {img} = req.body;
-//         const addImg = {img};
-//         const data = await fs.readFileSync('./game.json');
-//         const game =[...JSON.parse(data)];
-//         addImg.id = game.length+1;
-//         game.push(addImg);
-//         await fs.writeFileSync('./game.json', JSON.stringify(game));
-//         res.status(200).json({message: 'game added successfully'});
-        
-//     } catch (error) {
-//         res.status(500).send(error)
-        
-//     }
-
-// })
-// server.get('/data', (req, res) => {
-//     const options = {
-//         method: 'GET',
-//         params: {word: 'bla'},
-//         headers: {'Content-Type': 'application/json'}
-//       }
-    
-//       axios.request(options).then((response) =>{
-//           res.json(response.data)
-//           console.log(response.data)
-        
-//       }).catch((err) =>{
-//           console.error(err)
-//       })
-// })
 
 
 
