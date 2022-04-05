@@ -1,5 +1,7 @@
 const express = require('express');
 
+const path = require('path');
+
 const axios = require('axios');
 
 const fs = require('fs');
@@ -13,11 +15,15 @@ const PORT = process.env.PORT || 5005;
 const server = express();
 
 server.use(cors());
+server.use(express.static(path.join(__dirname, 'build')))
 
 server.use(bodyParser.urlencoded({ extended: false }));
 
 server.use(bodyParser.json());
 
+server.get(`/`, async(req, res)=>{
+res.sendFile(path.join(__dirname, 'build/index.html'));
+});
 
 //get info from json to send to guessing
 server.get(`/drawing`, async (req, res) => {

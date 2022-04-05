@@ -1,22 +1,70 @@
-# Drawing_Project_repo
-I created an app that is used as a playing game between two users. 
-One player gets a random word, that changes, depending on the selected difficulty level, while the other player 
-need to guess what the chosen word is, based on the drawing he receives from the player 
-who chose the word. At first, I divided the project between client side and server side. 
-First, before I started coding, I had designed the app wireframes using Figma, to get a better understanding of the app ui. 
-Then, after the screens were ready, I had started to create the client side by opening a folder for each component (screen), 
-and a context folder to store the functions and the global states that need to be used in some components. 
-I wrote random word based on a difficulty function, using random-words package, connected it to difficulty component and difficulty component to my welcome component. 
-Then, I looked for a drawing library and installed react-canvas-draw and connected the drawing component to a waiting component. 
-For the guessing player I reused drawing component and made a conditioning state. 
-After the first player’s ui and functionality were ready, I combined between client and server, 
-and started working on the server side that was more challenging for me since so far, I hardly learned about it during my studies. 
-I stored the data in json file. I read about http request methods and how to transfer data between node.js and react, 
-I used ‘get request’ that sending data to react and in drawing and waiting components, I used 'useEffect' and 'setInterval' to constantly check data changes. 
-To present the drawing I used again react-canvas-draw. In addition, I used ‘put request’ to take the drawing and the random word to be stored in a json file, 
-and another ‘put request’ to reset data after a winning for the guessing player.
-When the session is over, both players are transferred to the welcome screen and can start another session.
+# Getting Started with Create React App
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
+In the project directory, you can run:
 
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
