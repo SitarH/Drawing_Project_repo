@@ -8,7 +8,7 @@ function Waiting() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch('http://localhost:5005/drawing')
+      fetch('/drawing')
       .then(response => response.json())
       .then(data => {
         const image = data[0].img;

@@ -24,7 +24,7 @@ function Drawing() {
     useEffect(() => {
       if(isGuessing){
       const interval = setInterval(() => {
-        fetch('http://localhost:5005/drawing')
+        fetch('/drawing')
         .then(response => response.json())
         .then(data => {
           const image = data[0].img;
@@ -50,7 +50,7 @@ function Drawing() {
     const handleData = async () =>{
       audio1.play();
       const canvasData = canvas.current.getSaveData();
-      await fetch('http://localhost:5005/change', {
+      await fetch('/change', {
         method: 'PUT',
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ function Drawing() {
     }
 
     const handleReset = () =>{
-      fetch('http://localhost:5005/reset', {
+      fetch('/reset', {
         method: 'PUT',
         headers: {
           "Content-Type": "application/json",
